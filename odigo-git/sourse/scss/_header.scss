@@ -1,0 +1,188 @@
+html{
+    font-size: 10px;
+}
+
+.wrapper{
+    background-image: url(../img/png/Hero-header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 60%;
+    max-height: 120vh;
+    min-height: 1000px;
+    height: 100%;
+    width: 100%;
+    padding: 56px 0px 376px 0px;
+    font-family: $fontMain;
+}
+
+
+.header {
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 31px 15px 31px 15px;
+    transform: translate(0,-50%);
+    opacity: 0;
+    transition: all ease 0.8s 0.2s;
+    &.active{
+        transform: translate(0,0%);
+        opacity: 1;
+    }
+    &__container {
+        max-width: $containerHeaderWidth;
+        margin: 0 auto;
+    }
+
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+
+    &__list {
+        display: flex;
+        gap: 8.2rem;
+    }
+}
+
+.headerlist {
+    &__li {
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+        color: $white;
+    }
+    &__logo{
+        cursor: pointer;
+    }
+}
+
+
+@media(max-width:$burgerBreakpoint) {
+    .header{
+        &__list{
+            display: inline-block;
+            padding-left: 50px;
+            & li{
+                max-width: 200px;
+                padding: 20px 5px;
+                font-size: 2.8rem;
+            }
+        }
+    }
+    .header__burger {
+        //делаем дизайн для меню
+        display: block;
+        position: relative;
+        top: 6px;
+        width: 30px;
+        height: 20px;
+        z-index: 999; //если нужно расположить выше других
+    }
+
+    .header__burger span {
+        position: absolute; //создаем полоски
+        background-color: #fff;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 9px; //размер по ситуации
+        transition: 0.5s all ease; //если нужна анимация
+    }
+
+    .header__burger::before,
+    .header__burger::after {
+        content: ''; //создаем полоски
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        position: absolute;
+        left: 0;
+        transition: 0.5s all ease;
+    }
+
+    .header__burger::before {
+        top: 0;
+    }
+
+    .header__burger::after {
+        bottom: 0;
+    }
+
+    .header__list {
+        z-index: 998;
+        position: fixed; //делаем вылетающее сверхну меню
+        top: -100%; //чтобы меню вылетало слева
+        left: 0;
+        width: 100%;
+        background-image: url(https://www.goodline.ru/upload/resize_cache/iblock/035/900_500_2/035db46fcca43dfa66904d881ad56762.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 0vh;   //height: 100vh;
+        padding-top: 110px;
+        transition: 0.7s all ease;
+        overflow: auto; //чтобы скролить внутри меню если много элементов
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .header__list.activeBurger {
+        top: 0; //когда есть класс то сдвигаем меню, которое было сверху
+        height: 100vh;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .header__burger.activeBurger::before {
+        //поворачиваем палочки
+        transform: rotate(45deg);
+        top: 9px;
+    }
+
+    .header__burger.activeBurger::after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+
+    .header__burger.activeBurger span {
+        //убираем центральную палку
+        transform: scale(0)
+    }
+
+    body.lockBurger {
+        overflow: hidden; //запрещаем скроллить когда открыто меню
+    }
+}
+@media(max-width:420px){
+    .discover {
+        &_title {
+            font-weight: 500;
+            font-size: 4.5rem;
+            line-height: 4rem;
+            max-width: 650px;
+            padding-top: 137px;
+            margin-bottom: 20px;
+        }
+    }    
+}
+@media(max-height:775px){
+    .discover{
+        &__button {
+            margin-bottom: 47px;
+        }
+        &__menu {
+            margin-bottom: 47px;
+        }
+    }
+}
+@media(max-height:700px){
+    .discover{
+        &_title{
+            padding-top: 3rem;
+        }
+    }
+}
+
+

@@ -1,0 +1,135 @@
+.benefits {
+    padding: 94px 15px 112px 15px;
+    background-color: $white;
+    max-width: $containerWidth;
+    margin: 0 auto;
+    box-shadow: 0px 2px 20px rgba(21, 24, 36, 0.15993);
+
+    &__container {
+        max-width: $containerWidth;
+        margin: 0 auto;
+    }
+
+    &__titlemain {
+        font-weight: 500;
+        font-size: 3.5rem;
+        line-height: 4.2rem;
+        color: #102746;
+        padding: 0px 0px 150px 60px;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(317px, 1fr));
+        grid-template-rows: 1fr;
+        justify-items: center;
+    }
+
+    &__item {
+    }
+
+    &__img {
+        padding-bottom: 37px;
+
+        & img {
+            max-width: 66px;
+        }
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+        color: black;
+        padding-bottom: 26px;
+    }
+
+    &__text {
+        max-width: 310px;
+        width: 100%;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        color: black;
+        margin-bottom: 39px;
+        overflow: hidden;
+        max-height: 75px;
+        transition: 0.5s all ease;
+        &.showAllText{
+            max-height: 500px;
+        }
+    }
+    &__learn {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        color: $blue;
+        cursor: pointer;
+        transition: all ease 0.3s;
+        &:hover{
+            opacity: 0.6;
+            & svg {
+                transition: all ease 0.3s;
+                transform: translate(26px,0);
+                position: relative;
+            }    
+        }
+        & svg {
+            transform: translate(13px,0);
+            position: relative;
+            top: -2px;
+        }
+    }
+}
+
+@media(max-width:$breakpoint992) {
+    .benefits {
+        &__titlemain {
+            padding: 0px 0px 70px 60px;
+        }
+        &__items {
+            grid-template-columns: repeat(2, minmax(317px, 1fr));
+            grid-template-rows: 1fr;
+           justify-items: center;
+            
+        }
+        &__item{
+            margin-bottom: 40px;
+            
+        }
+    }
+}
+@media(max-width:932px){
+    .discover{
+        &__button {
+            background: $blue;
+            margin-bottom: 113px;
+        }
+    }
+}
+@media(max-width:$breakpoint768){
+    .benefits{
+    &__items {
+        grid-template-columns: repeat(1, minmax(317px, 1fr));
+        grid-template-rows: 1fr;
+        
+    }
+}
+}
+@media(max-width:572px){
+    .discover{
+        &__button {
+            background: $blue;
+            margin-bottom: 73px;
+        }
+    }
+}
+@media(max-width:350px){
+    .benefits{
+        &__text{
+            max-width: 250px;
+            width: 100%;
+            }
+        &__items{
+            justify-items: start;
+        }
+    }
+}

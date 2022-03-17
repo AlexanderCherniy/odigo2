@@ -1,0 +1,119 @@
+.footer {
+    padding: 118px 15px;
+    background-color: $backgroundBlack;
+    overflow: hidden;
+    &__img {
+        margin-bottom: 25px;
+        transform: translate(-50%,0);
+        opacity: 0;
+        transition: all ease 0.8s 0.2s;
+        &.active{
+            transform: translate(0%,0);
+            opacity: 1; 
+        }
+    }
+    &__container {
+        max-width: $containerWidth;
+        margin: 0 auto;
+    }
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__links {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        grid-template-rows: 1fr;
+        gap: 139.5px;
+        transform: translate(50%,0);
+        opacity: 0;
+        transition: all ease 0.8s 0.2s;
+        &.active{
+            transform: translate(0%,0);
+            opacity: 1; 
+        }
+    }
+
+    &__link {}
+}
+
+.link__ul-body {
+    transition: max-height 0.2s ease-out;
+}
+
+.link-title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: $white;
+    cursor: pointer;
+}
+
+.link {
+    &__ul {}
+
+    &__a {
+        font-size: 16px;
+        line-height: 27px;
+        color: $white;
+    }
+}
+
+@media(max-width:900px) {
+    .footer {
+        &__img {
+            margin-bottom: 25px;
+        }
+        .link-title{
+        position: relative;
+        padding-left: 25px;
+    &::before,
+    &::after {
+        content: ''; //создаем полоски
+        width: 13px;
+        height: 2px;
+        background-color: #fff;
+        position: absolute;
+        left: 0;
+        transition: 0.5s all ease;
+    }
+    &.active::before {
+        //поворачиваем палочки
+        transform: rotate(45deg);
+        top: 13px;
+        left: 9px;
+    }
+
+    &.active::after {
+        transform: rotate(-45deg);
+        top: 13px;
+    }
+
+    &::before {
+        top: 13px;
+        transform: rotate(-45deg);
+        left: 9px;
+    }
+
+    &::after {
+        top: 13px;
+        transform: rotate(45deg);
+    }
+        }
+        .link__ul-body {
+            max-height: 0;
+            overflow: hidden; // для плавности
+            padding-left: 25px;
+        }
+
+        &__links {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(100px, 1fr));
+            grid-template-rows: 1fr;
+            gap: 19.5px;
+        }
+    }
+}

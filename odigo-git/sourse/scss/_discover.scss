@@ -1,0 +1,47 @@
+
+.discover {
+    &__container{
+    max-width: $containerHeaderWidth;
+    margin: 0 auto;
+    padding: 0 16px;
+    }
+    &_title {
+        font-weight: 500;
+        font-size: 50px;
+        line-height: 60px;
+        max-width: 600px;
+        color: $white;
+        margin-bottom: 22px;
+        padding-top: 27.7rem;
+    }
+
+    &__subtitle {
+        font-size: 16px;
+        line-height: 24px;
+        color: $white;
+        max-width: 548px;
+        margin-bottom: 59px;
+    }
+    &__button {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+        color: $white;
+        cursor: pointer;
+        padding: 17px 45px;
+    }
+    &__button {
+        background: $blue;
+        
+    }
+}
+@media(max-width:572px){
+    .discover{
+        &__button-shell{
+            width: 100%;
+        }
+        &__button {
+            width: 100%;
+        }
+    }
+}
